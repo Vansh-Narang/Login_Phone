@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_13/SignIn.dart';
 import 'package:flutter_application_13/otp.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class Login_Page extends StatefulWidget {
   const Login_Page({super.key});
@@ -124,13 +126,21 @@ class _Login_PageState extends State<Login_Page> {
                         },
                         codeAutoRetrievalTimeout: (String verificationId) {},
                       );
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => otp_dart(),
-                      //     ));
                     },
                     child: Text("Send the code")),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 45,
+                child: ElevatedButton(
+                  onPressed: () {
+                    SignInGoogle();
+                  },
+                  child: Text("Connect With Google"),
+                ),
               )
             ],
           ),
